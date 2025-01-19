@@ -73,14 +73,6 @@ async def on_message(message):
 # ///////////////////// Commands /////////////////////
 # กำหนดคำสั่งให้บอท
 
-@bot.command()
-async def hello(ctx):
-    await ctx.send(f"hello {ctx.author.name}!")
-
-
-@bot.command()
-async def test(ctx, arg):
-    await ctx.send(arg)
 
 
 # Slash Commands
@@ -94,7 +86,7 @@ async def hellocommand(interaction):
             ],
         style=PresetStyle.thin_compact
     )
-    await interaction.response.send_message("ddd")
+    await interaction.response.send_message(output)
 
 
 @bot.tree.command(name='name')
