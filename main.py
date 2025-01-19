@@ -89,7 +89,7 @@ async def hellocommand(interaction):
         formatted_date = dt.strftime("%d-%m-%Y")
         emmbed.add_field(name=entry["Name"], value=formatted_date, inline=False)
         
-    await interaction.response.send_message(emmbed = emmbed)
+    await interaction.response.send_message(embed = emmbed)
 
 
 @bot.tree.command(name='name')
