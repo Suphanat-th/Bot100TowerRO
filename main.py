@@ -7,19 +7,6 @@ from myserver import server_on
 
 import json
 
-
-# Load JSON file
-with open('./100tower.json', 'r') as file:
-    data = json.load(file)
-
-print(data)
-
-# Access the "Data" array
-data_array = data["Data"]
-
-# Print all entries in the "Data" array
-for entry in data_array:
-    print(f"Name: {entry['Name']}, Date: {entry['Year']}-{entry['Month']:02d}-{entry['Day']:02d}")
     
 bot = commands.Bot(comman_prefix='!',intents=discord.Intents.all())
 
@@ -98,6 +85,11 @@ async def hellocommand(interaction):
 @bot.tree.command(name='name')
 @app_commands.describe(name = "What's your name?")
 async def namecommand(interaction, name : str):
+    # Load JSON file
+    with open('./100tower.json', 'r') as file:
+        data = json.load(file)
+    # Access the "Data" array
+    data_array = data["Data"]
     filtered = [entry for entry in data_array if entry["Name"] == "Peet"]
     dt = datetime(filtered["Year"],filtered["Month"],filtered["Day"])
     formatted_date = dt.strftime("%d-%m-%y")
