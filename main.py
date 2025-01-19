@@ -98,7 +98,10 @@ async def hellocommand(interaction):
 @bot.tree.command(name='name')
 @app_commands.describe(name = "What's your name?")
 async def namecommand(interaction, name : str):
-    await interaction.response.send_message(f"Hello {name}")
+    filtered = [entry for entry in data_array if entry["Name"] == "Peet"]
+    dt = datetime(filtered["Year"],filtered["Month"],filtered["Day"])
+    formatted_date = dt.strftime("%d-%m-%y")
+    await interaction.response.send_message(f"Hello {name} {formatted_date}")
 
 
 # Embeds
