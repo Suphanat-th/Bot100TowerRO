@@ -8,7 +8,7 @@ from myserver import server_on
 import json
 
     
-bot = commands.Bot(comman_prefix='!',intents=discord.Intents.all())
+bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
 
 # //////////////////// Bot Event /////////////////////////
