@@ -77,8 +77,8 @@ async def on_message(message):
 # Slash Commands
 @bot.tree.command(name='hellobot', description='Replies with Hello')
 async def hellocommand(interaction):
-    emmbed = discord.Embed(title='Help Me! - Bot Commands',
-                       description='Bot Commands',
+    emmbed = discord.Embed(title='The Endless Tower.',
+                       description='รายละเอียดเควสของแต่ละคน',
                        color=0x66FFFF,
                        timestamp= discord.utils.utcnow())
     
@@ -87,9 +87,9 @@ async def hellocommand(interaction):
         # Create a datetime object
         dt = datetime(entry["Year"], entry["Month"], entry["Day"])
         formatted_date = dt.strftime("%d-%m-%Y")
-        emmbed.add_field(name=entry["Name"], value=formatted_date, inline=True)
+        emmbed.add_field(name=entry["Name"], value=formatted_date, inline=False)
         
-    await interaction.response.send_message(embed = emmbed)
+    await interaction.response.send_message(emmbed = emmbed)
 
 
 @bot.tree.command(name='name')
