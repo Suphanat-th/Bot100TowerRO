@@ -8,6 +8,11 @@ from myserver import server_on
 import json
 from datetime import datetime
 
+# Load JSON file
+with open('./100tower.json', 'r') as file:
+    data = json.load(file)
+# Access the "Data" array
+data_array = data["Data"]
     
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
@@ -86,15 +91,14 @@ async def hellocommand(interaction):
 @bot.tree.command(name='name')
 @app_commands.describe(name = "What's your name?")
 async def namecommand(interaction, name : str):
-    # Load JSON file
-    with open('./100tower.json', 'r') as file:
-        data = json.load(file)
-    # Access the "Data" array
-    data_array = data["Data"]
-    filtered = [entry for entry in data_array if entry["Name"] == "Peet"]
-    dt = datetime(filtered["Year"],filtered["Month"],filtered["Day"])
-    formatted_date = dt.strftime("%d-%m-%y")
-    await interaction.response.send_message(f"Hello {name} {formatted_date}")
+    filtered = [entry for entry in data_array if entry["Name"] == name]
+    if filtered:
+         # Extract the first matching entry
+        entry = filtered[0]
+        # Create a datetime object
+        dt = datetime(entry["Year"], entry["Month"], entry["Day"])
+        formatted_date = dt.strftime("%d-%m-%y")
+        await interaction.response.send_message(f"Hello {name} {formatted_date}")
 
 
 # Embeds
