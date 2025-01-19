@@ -7,7 +7,6 @@ from myserver import server_on
 
 import json
 from datetime import datetime
-from table2ascii import table2ascii as t2a, PresetStyle
 
 # Load JSON file
 with open('./100tower.json', 'r') as file:
@@ -78,55 +77,34 @@ async def on_message(message):
 # Slash Commands
 @bot.tree.command(name='hellobot', description='Replies with Hello')
 async def hellocommand(interaction):
-    output = t2a(
-        header=["Name", "Year", "Month", "Date"],
-        body=[
-                [ entry["Name"], entry["Year"], entry['Day'],entry['Month']]
-                for i, entry in enumerate(data_array)
-            ],
-        style=PresetStyle.thin_compact
-    )
-    await interaction.response.send_message(output)
+    emmbed = discord.Embed(title='Help Me! - Bot Commands',
+                       description='Bot Commands',
+                       color=0x66FFFF,
+                       timestamp= discord.utils.utcnow())
+    
+    for entry in data_array:
+        # ใส่ข้อมูล
+        # Create a datetime object
+        dt = datetime(entry["Year"], entry["Month"], entry["Day"])
+        formatted_date = dt.strftime("%d-%m-%Y")
+        emmbed.add_field(name=entry["Name"], value=formatted_date, inline=True)
+        
+    await interaction.response.send_message(embed = emmbed)
 
 
 @bot.tree.command(name='name')
 @app_commands.describe(name = "What's your name?")
 async def namecommand(interaction, name : str):
-    filtered = [entry for entry in data_array if entry["Name"] == name]
+    filtered = [entry for entry in data_array if entry["Name"].lower() == name.lower()]
     if filtered:
          # Extract the first matching entry
         entry = filtered[0]
         # Create a datetime object
         dt = datetime(entry["Year"], entry["Month"], entry["Day"])
-        formatted_date = dt.strftime("%d-%m-%yyyy")
+        formatted_date = dt.strftime("%d-%m-%Y")
         await interaction.response.send_message(f"Hello {name} {formatted_date}")
 
 
-# Embeds
-
-@bot.tree.command(name='help', description='Bot Commands')
-async def helpcommand(interaction):
-    emmbed = discord.Embed(title='Help Me! - Bot Commands',
-                           description='Bot Commands',
-                           color=0x66FFFF,
-                           timestamp= discord.utils.utcnow())
-
-
-    # ใส่ข้อมูล
-    emmbed.add_field(name='/hello1', value='Hello Commmand', inline=True)
-    emmbed.add_field(name='/hello2', value='Hello Commmand', inline=True)
-    emmbed.add_field(name='/hello3', value='Hello Commmand', inline=False)
-
-    emmbed.set_author(name='Author', url='https://www.youtube.com/@maoloop01/channels', icon_url='https://yt3.googleusercontent.com/0qFq3tGT6LVyfLtZc-WCXcV9YyEFQ0M9U5W8qDe36j2xBTN34CJ20dZYQHmBz6aXASmttHI=s900-c-k-c0x00ffffff-no-rj')
-
-    # ใส่รูปเล็ก-ใหญ่
-    emmbed.set_thumbnail(url='https://yt3.googleusercontent.com/0qFq3tGT6LVyfLtZc-WCXcV9YyEFQ0M9U5W8qDe36j2xBTN34CJ20dZYQHmBz6aXASmttHI=s900-c-k-c0x00ffffff-no-rj')
-    emmbed.set_image(url='https://i.ytimg.com/vi/KZRa9DQzUpQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCfWDgiBYjFJtrUasd5yxmQZJG_cg')
-
-    # Footer เนื้อหาส่วนท้าย
-    emmbed.set_footer(text='Footer', icon_url='https://yt3.googleusercontent.com/0qFq3tGT6LVyfLtZc-WCXcV9YyEFQ0M9U5W8qDe36j2xBTN34CJ20dZYQHmBz6aXASmttHI=s900-c-k-c0x00ffffff-no-rj')
-
-    await interaction.response.send_message(embed = emmbed)
 
 
 server_on()
