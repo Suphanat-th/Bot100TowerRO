@@ -7,6 +7,7 @@ from myserver import server_on
 
 import json
 from datetime import datetime
+from table2ascii import table2ascii as t2a, PresetStyle
 
 # Load JSON file
 with open('./100tower.json', 'r') as file:
@@ -85,38 +86,16 @@ async def test(ctx, arg):
 # Slash Commands
 @bot.tree.command(name='hellobot', description='Replies with Hello')
 async def hellocommand(interaction):
+    output = t2a(
+        header=["Name", "Year", "Month", "Date"],
+        body=[
+                [ entry["Name"], entry["Year"], entry['Day'],entry['Month']]
+                for i, entry in enumerate(data_array)
+            ],
+        style=PresetStyle.thin_compact
+    )
 
-    # Start the HTML table
-    html_table = """
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Date (YY-DD-MM)</th>
-            </tr>
-        </thead>
-        <tbody>
-    """
-
-
-    # Generate table rows dynamically
-    for entry in data_array:
-        # Format the date as YY-DD-MM
-        dt = datetime(entry["Year"], entry["Month"], entry["Day"])
-        formatted_date = dt.strftime("%d-%m-%yyyy")
-        html_table += f"""
-            <tr>
-                <td>{entry['Name']}</td>
-                <td>{formatted_date}</td>
-            </tr>
-        """
-
-    # Close the table
-    html_table += """
-        </tbody>
-    </table>
-    """
-    await interaction.response.send_message(html_table)
+    await interaction.response.send_message(output)
 
 
 @bot.tree.command(name='name')
