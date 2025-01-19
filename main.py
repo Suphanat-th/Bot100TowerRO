@@ -85,7 +85,38 @@ async def test(ctx, arg):
 # Slash Commands
 @bot.tree.command(name='hellobot', description='Replies with Hello')
 async def hellocommand(interaction):
-    await interaction.response.send_message("Hello It's me BOT DISCORD")
+
+    # Start the HTML table
+    html_table = """
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date (YY-DD-MM)</th>
+            </tr>
+        </thead>
+        <tbody>
+    """
+
+
+    # Generate table rows dynamically
+    for entry in data_array:
+        # Format the date as YY-DD-MM
+        dt = datetime(entry["Year"], entry["Month"], entry["Day"])
+        formatted_date = dt.strftime("%d-%m-%yyyy")
+        html_table += f"""
+            <tr>
+                <td>{entry['Name']}</td>
+                <td>{formatted_date}</td>
+            </tr>
+        """
+
+    # Close the table
+    html_table += """
+        </tbody>
+    </table>
+    """
+    await interaction.response.send_message(html_table)
 
 
 @bot.tree.command(name='name')
@@ -97,7 +128,7 @@ async def namecommand(interaction, name : str):
         entry = filtered[0]
         # Create a datetime object
         dt = datetime(entry["Year"], entry["Month"], entry["Day"])
-        formatted_date = dt.strftime("%d-%m-%y")
+        formatted_date = dt.strftime("%d-%m-%yyyy")
         await interaction.response.send_message(f"Hello {name} {formatted_date}")
 
 
