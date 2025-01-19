@@ -5,8 +5,23 @@ from discord import app_commands
 
 from myserver import server_on
 
-bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
+import json
 
+
+# Load JSON file
+with open('./100tower.json', 'r') as file:
+    data = json.load(file)
+
+print(data)
+
+# Access the "Data" array
+data_array = data["Data"]
+
+# Print all entries in the "Data" array
+for entry in data_array:
+    print(f"Name: {entry['Name']}, Date: {entry['Year']}-{entry['Month']:02d}-{entry['Day']:02d}")
+    
+bot = commands.Bot(comman_prefix='!',intents=discord.Intents.all())
 
 
 # //////////////////// Bot Event /////////////////////////
@@ -114,5 +129,4 @@ async def helpcommand(interaction):
 
 
 server_on()
-
 bot.run(os.getenv('TOKEN'))
