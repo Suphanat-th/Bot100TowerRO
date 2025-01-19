@@ -5,8 +5,8 @@ from discord import app_commands
 
 from myserver import server_on
 
-
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
+
 
 
 # //////////////////// Bot Event /////////////////////////
@@ -114,4 +114,5 @@ async def helpcommand(interaction):
 
 
 server_on()
+
 bot.run(os.getenv('TOKEN'))
