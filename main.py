@@ -94,8 +94,7 @@ async def hellocommand(interaction):
             ],
         style=PresetStyle.thin_compact
     )
-
-    await interaction.response.send_message(output)
+    await interaction.response.send_message("ddd")
 
 
 @bot.tree.command(name='name')
