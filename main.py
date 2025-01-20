@@ -93,13 +93,12 @@ async def qtowercommand(interaction):
             dt = datetime(entry["Year"], entry["Month"], entry["Day"])
             # Add 7 days
             next_dt = dt + timedelta(days=7)
-            is_exp = next_dt > datetime.now()
 
             pre_date = dt.strftime("%a %d %b %Y")
             next_date = next_dt.strftime("%a %d %b %Y")
             str += '> #'+entry["Name"]+'# \n'
-            str += '> Lasted : '+pre_date+'\n'
-            str += '> Next : '+next_date+'\n'
+            str += '> Lasted : `'+pre_date+'`\n'
+            str += '> Next : `'+next_date+'`\n'
             str += '\n'
             await interaction.followup.send(content=str)
     else :
