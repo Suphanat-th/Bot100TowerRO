@@ -97,8 +97,8 @@ async def qtowercommand(interaction):
 
             pre_date = dt.strftime("%a %d %b %Y (%H:%M)")
             next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
-            str += '<@'+entry["Id"]+'>'
-            str += '\n>ลงไปล่าสุด :`'+pre_date+'`\n'
+            str += '<@'+entry["Id"]+'>\n'
+            str += '> ลงไปล่าสุด :`'+pre_date+'`\n'
             str += '> ลงได้อีกครั้ง :`'+next_date+'`\n'
             str += '\n'
             await interaction.followup.send(content=str)
