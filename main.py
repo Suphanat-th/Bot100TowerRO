@@ -105,13 +105,17 @@ async def qtowercommand(interaction):
             next_date = next_dt.strftime("%a %d %b %Y")
             c_no+=1
             if c_no%25==0 :
+                c_no = 0
                 emmbed.title = ''
                 emmbed.description = ''
                 emmbed.clear_fields()
                 emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
                 emmbeds.append(emmbed)
-            else :
+            else:
                 emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
+
+        if c_no %25 != 0:
+            emmbeds.append(emmbed)
 
         await interaction.response.send_message(embeds = emmbeds)
     else :
