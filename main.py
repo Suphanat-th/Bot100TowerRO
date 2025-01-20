@@ -13,6 +13,7 @@ with open('./100tower.json', 'r') as file:
     data = json.load(file)
 # Access the "Data" array
 data_array = data["Data"]
+data_web_costume = data["Costume"]
     
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
@@ -79,44 +80,41 @@ async def on_message(message):
 async def qtowercommand(interaction):
     emmbeds = []
     chanel_id = interaction.channel.id
-    title ='The Endless Tower. >'+ chanel_id
-    description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
-    color = 0x66FFFF
-    
+    if chanel_id == 1101698840475742228 : 
 
-    emmbed = discord.Embed(title=title,
-                   description=description,
-                   color=color,
-                   timestamp= discord.utils.utcnow())
-    
+        title ='The Endless Tower. >'+ chanel_id
+        description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
+        color = 0x66FFFF
+        
 
-    for entry in data_array:
-        # ใส่ข้อมูล
-        # Create a datetime object
+        emmbed = discord.Embed(title=title,
+                    description=description,
+                    color=color,
+                    timestamp= discord.utils.utcnow())
+        
 
-        dt = datetime(entry["Year"], entry["Month"], entry["Day"])
-        # Add 7 days
-        next_dt = dt + timedelta(days=7)
+        for entry in data_array:
+            # ใส่ข้อมูล
+            # Create a datetime object
 
-        pre_date = dt.strftime("%a %d %b %Y")
-        next_date = next_dt.strftime("%a %d %b %Y")
-        emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
-        emmbeds.append(emmbed)
+            dt = datetime(entry["Year"], entry["Month"], entry["Day"])
+            # Add 7 days
+            next_dt = dt + timedelta(days=7)
 
-    await interaction.response.send_message(embeds = emmbeds)
+            pre_date = dt.strftime("%a %d %b %Y")
+            next_date = next_dt.strftime("%a %d %b %Y")
+            emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
+            emmbeds.append(emmbed)
+
+        await interaction.response.send_message(embeds = emmbeds)
+    else :
+        await interaction.response.send_message(content='This is not allow command in chanel !')
 
 
-@bot.tree.command(name='name')
-@app_commands.describe(name = "What's your name?")
-async def namecommand(interaction, name : str):
-    filtered = [entry for entry in data_array if entry["Name"].lower() == name.lower()]
-    if filtered:
-         # Extract the first matching entry
-        entry = filtered[0]
-        # Create a datetime object
-        dt = datetime(entry["Year"], entry["Month"], entry["Day"])
-        formatted_date = dt.strftime("%d-%m-%Y")
-        await interaction.response.send_message(f"Hello {name} {formatted_date}")
+@bot.tree.command(name='costume')
+@app_commands.describe(name = "Go to link costume ! ")
+async def namecommand(interaction):
+        await interaction.response.send_message(data_web_costume)
 
 
 
