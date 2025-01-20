@@ -97,7 +97,7 @@ async def qtowercommand(interaction):
             str += '>>> **'+entry["Name"]+'**\n'
             str += 'Lasted : '+pre_date+'\n'
             str += 'Next : '+next_date+'\n'
-            str += '\n\n'
+            str += '\n'
 
         await interaction.response.send_message(content = str)
     else :
