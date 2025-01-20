@@ -82,15 +82,7 @@ async def qtowercommand(interaction):
     chanel_id = interaction.channel.id
     if chanel_id == 1101698840475742228 : 
         str = '__The Endless Tower. __\n'
-        description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
-        color = 0x66FFFF
         
-
-        emmbed = discord.Embed(title=title,
-                    description=description,
-                    color=color,
-                    timestamp= discord.utils.utcnow())
-        c_no = 0
 
         for entry in data_array:
             # ใส่ข้อมูล
