@@ -93,7 +93,7 @@ async def qtowercommand(interaction):
             dt = datetime(entry["Year"], entry["Month"], entry["Day"],
                         entry["Hour"], entry["Min"], entry["Sec"])
             # Add 7 days
-            next_dt = dt + timedelta(days=7,hours=-1)
+            next_dt = dt + timedelta(days=7)
 
             pre_date = dt.strftime("%a %d %b %Y (%H:%M)")
             next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
