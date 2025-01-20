@@ -78,7 +78,8 @@ async def on_message(message):
 @bot.tree.command(name='qtower', description='List of quest endless tower.')
 async def qtowercommand(interaction):
     emmbeds = []
-    title ='The Endless Tower.'
+    chanel_id = interaction.channel.id
+    title ='The Endless Tower. >'+ chanel_id
     description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
     color = 0x66FFFF
     
