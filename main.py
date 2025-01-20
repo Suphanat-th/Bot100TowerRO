@@ -90,15 +90,16 @@ async def qtowercommand(interaction):
             # ใส่ข้อมูล
             # Create a datetime object
 
-            dt = datetime(entry["Year"], entry["Month"], entry["Day"])
+            dt = datetime(entry["Year"], entry["Month"], entry["Day"],
+                        entry["Hour"], entry["Minute"], entry["Second"])
             # Add 7 days
-            next_dt = dt + timedelta(days=7)
+            next_dt = dt + timedelta(days=7,hours=-1)
 
-            pre_date = dt.strftime("%a %d %b %Y")
-            next_date = next_dt.strftime("%a %d %b %Y")
+            pre_date = dt.strftime("%a %d %b %Y (%H:%M)")
+            next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
             str += '<@'+entry["Id"]+'>'
-            str += '\n> Lasted :`'+pre_date+'`\n'
-            str += '> Next :`'+next_date+'`\n'
+            str += '\n>ลงไปล่าสุด :`'+pre_date+'`\n'
+            str += '> ลงได้อีกครั้ง :`'+next_date+'`\n'
             str += '\n'
             await interaction.followup.send(content=str)
     else :
