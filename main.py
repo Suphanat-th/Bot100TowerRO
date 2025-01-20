@@ -91,7 +91,7 @@ async def qtowercommand(interaction):
                     description=description,
                     color=color,
                     timestamp= discord.utils.utcnow())
-        
+        c_no = 0
 
         for entry in data_array:
             # ใส่ข้อมูล
@@ -103,12 +103,19 @@ async def qtowercommand(interaction):
 
             pre_date = dt.strftime("%a %d %b %Y")
             next_date = next_dt.strftime("%a %d %b %Y")
-            emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
-            emmbeds.append(emmbed)
+            c_no+=1
+            if c_no%25==0 :
+                emmbed.title = ''
+                emmbed.description = ''
+                emmbed.clear_fields()
+                emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
+                emmbeds.append(emmbed)
+            else :
+                emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
 
         await interaction.response.send_message(embeds = emmbeds)
     else :
-        await interaction.response.send_message(content='This is not allow command in chanel !')
+        return
 
 
 @bot.tree.command(name='costume',description="Go to link costume ! ")
