@@ -82,7 +82,7 @@ async def qtowercommand(interaction):
     chanel_id = interaction.channel.id
     if chanel_id == 1101698840475742228 : 
 
-        title ='The Endless Tower. >'+ chanel_id
+        title ='The Endless Tower. >'
         description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
         color = 0x66FFFF
         
