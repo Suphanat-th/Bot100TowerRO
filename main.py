@@ -81,7 +81,7 @@ async def qtowercommand(interaction):
     emmbeds = []
     chanel_id = interaction.channel.id
     if chanel_id == 1101698840475742228 : 
-        str = '__The Endless Tower. __\n'
+        str = '### __The Endless Tower. __ ### \n'
         
 
         for entry in data_array:
@@ -94,9 +94,9 @@ async def qtowercommand(interaction):
 
             pre_date = dt.strftime("%a %d %b %Y")
             next_date = next_dt.strftime("%a %d %b %Y")
-            str += '> **'+entry["Name"]+'**\n'
-            str += '> Lasted : '+pre_date+'\n'
-            str += '> Next : '+next_date+'\n'
+            str += '> #'+entry["Name"]+'##\n'
+            str += '> Lasted : [0;35mTest #'+pre_date+'\n'
+            str += '> Next : `'+next_date+'`\n'
             str += '\n'
 
         await interaction.response.send_message(content = str)
