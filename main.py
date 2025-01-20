@@ -75,8 +75,7 @@ async def on_message(message):
 
 
 # Slash Commands
-@bot.tree.command(name='qtower', description='Replies with Hello')
-@app_commands.describe(name = "List of quest endless tower.")
+@bot.tree.command(name='qtower', description='List of quest endless tower.')
 async def qtowercommand(interaction):
     emmbed = discord.Embed(title='The Endless Tower.',
                        description='รายละเอียดเควสของแต่ละคน',
