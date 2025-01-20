@@ -96,9 +96,10 @@ async def qtowercommand(interaction):
         emmbed.add_field(name=entry["Name"], value='', inline=False)
         emmbed.add_field(name='', value='Lasted Date : '+pre_date, inline=True)
         emmbed.add_field(name='', value='Next Date : '+next_date, inline=True)
-        emmbed.add_field(name='@@@@@@@@@@@@@@@@@@@@@@@@@',value='', inline=False)
+        emmbed.add_field(name='',value='____________________________', inline=False)
 
     await interaction.response.send_message(embed = emmbed)
+    await interaction.response.send_message(embed = emmbed,content='2')
 
 
 @bot.tree.command(name='name')
