@@ -75,7 +75,7 @@ async def on_message(message):
 
 
 # Slash Commands
-@bot.tree.command(name='hellobot', description='Replies with Hello')
+@bot.tree.command(name='q100tower', description='Replies with Hello')
 async def hellocommand(interaction):
     emmbed = discord.Embed(title='The Endless Tower.',
                        description='รายละเอียดเควสของแต่ละคน',
@@ -113,7 +113,7 @@ async def hellocommand(interaction):
         </tbody>
     </table>
     """
-    emmbed.add_field(name='TEST', value=formatted_date, inline=False)
+    emmbed.add_field(name='TEST', value=html_table, inline=False)
 
     await interaction.response.send_message(embed = emmbed)
 
