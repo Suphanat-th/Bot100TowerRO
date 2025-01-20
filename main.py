@@ -82,16 +82,16 @@ async def qtowercommand(interaction):
     description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
     color = 0x66FFFF
     
+
+    emmbed = discord.Embed(title=title,
+                   description=description,
+                   color=color,
+                   timestamp= discord.utils.utcnow())
     
 
     for entry in data_array:
         # ใส่ข้อมูล
         # Create a datetime object
-
-        emmbed = discord.Embed(title=title,
-                       description=description,
-                       color=color,
-                       timestamp= discord.utils.utcnow())
 
         dt = datetime(entry["Year"], entry["Month"], entry["Day"])
         # Add 7 days
@@ -99,11 +99,7 @@ async def qtowercommand(interaction):
 
         pre_date = dt.strftime("%a %d %b %Y")
         next_date = next_dt.strftime("%a %d %b %Y")
-        emmbed.add_field(name='*'+entry["Name"]+'*', value='', inline=False)
-        emmbed.add_field(name='', value='__Lasted Date__ : `'+pre_date+'`', inline=True)
-        emmbed.add_field(name='', value='__Next Date__ : `'+next_date+'`', inline=True)
-        emmbed.add_field(name='',value='_____', inline=False)
-
+        emmbed.add_field(name='*'+entry["Name"]+'*', value='>>>\nLasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
         emmbeds.append(emmbed)
 
     await interaction.response.send_message(embeds = emmbeds)
