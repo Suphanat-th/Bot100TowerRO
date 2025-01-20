@@ -111,9 +111,8 @@ async def qtowercommand(interaction):
         await interaction.response.send_message(content='This is not allow command in chanel !')
 
 
-@bot.tree.command(name='costume')
-@app_commands.describe(name = "Go to link costume ! ")
-async def namecommand(interaction):
+@bot.tree.command(name='costume',description="Go to link costume ! ")
+async def costumecommand(interaction):
         await interaction.response.send_message(data_web_costume)
 
 
