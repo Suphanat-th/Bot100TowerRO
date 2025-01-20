@@ -80,7 +80,7 @@ async def on_message(message):
 async def qtowercommand(interaction):
     emmbeds = []
     chanel_id = interaction.channel.id
-    if chanel_id == 1101698840475742228 : 
+    if chanel_id == 1101698840475742228 or chanel_id == 1330807911995277404 : 
         str = '### __The Endless Tower. __ ### \n'
         
         await interaction.response.send_message(content = str)
