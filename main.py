@@ -96,7 +96,7 @@ async def qtowercommand(interaction):
 
             pre_date = dt.strftime("%a %d %b %Y")
             next_date = next_dt.strftime("%a %d %b %Y")
-            str += '<@&'+entry["Id"]+'>'
+            str += '<@'+entry["Id"]+'>'
             str += '\n> Lasted :`'+pre_date+'`\n'
             str += '> Next :`'+next_date+'`\n'
             str += '\n'
