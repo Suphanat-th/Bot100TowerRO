@@ -82,40 +82,19 @@ async def qtowercommand(interaction):
                        color=0x66FFFF,
                        timestamp= discord.utils.utcnow())
     
-    # Start the HTML table
-    html_table = """
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Date (YY-DD-MM)</th>
-            </tr>
-        </thead>
-        <tbody>
-    """
+
     for entry in data_array:
         # ใส่ข้อมูล
         # Create a datetime object
 
         dt = datetime(entry["Year"], entry["Month"], entry["Day"])
         formatted_date = dt.strftime("%a %d %b %Y")
-        
-        # Format the date as YY-DD-MM
-        html_table += f"""
-            <tr>
-                <td>{entry['Name']}</td>
-                <td>{formatted_date}</td>
-            </tr>
-        """
-        
-    # Close the table
-    html_table += """
-        </tbody>
-    </table>
-    """
-    emmbed.add_field(name='TEST', value=html_table, inline=False)
+        emmbed.add_field(name=entry["Name"], value='', inline=False)
+        emmbed.add_field(name='', value='Lasted Date : '+formatted_date, inline=True)
+        emmbed.add_field(name='', value='Next Date : '+formatted_date, inline=True)
+        emmbed.add_field(name='______________________________________________________', inline=False)
 
-    await interaction.response.send_message(embed = emmbed,content =html_table)
+    await interaction.response.send_message(embed = emmbed)
 
 
 @bot.tree.command(name='name')
