@@ -92,7 +92,7 @@ async def qtowercommand(interaction):
         next_dt = dt + timedelta(days=7)
 
         pre_date = dt.strftime("%a %d %b %Y")
-        next_date = dt.strftime("%a %d %b %Y")
+        next_date = next_dt.strftime("%a %d %b %Y")
         emmbed.add_field(name=entry["Name"], value='', inline=False)
         emmbed.add_field(name='', value='Lasted Date : '+pre_date, inline=True)
         emmbed.add_field(name='', value='Next Date : '+next_date, inline=True)
