@@ -81,8 +81,7 @@ async def qtowercommand(interaction):
     emmbeds = []
     chanel_id = interaction.channel.id
     if chanel_id == 1101698840475742228 : 
-
-        title ='The Endless Tower. >'
+        str = '__The Endless Tower. __\n'
         description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
         color = 0x66FFFF
         
@@ -103,21 +102,11 @@ async def qtowercommand(interaction):
 
             pre_date = dt.strftime("%a %d %b %Y")
             next_date = next_dt.strftime("%a %d %b %Y")
-            c_no+=1
-            if c_no%25==0 :
-                c_no = 0
-                emmbed.title = ''
-                emmbed.description = ''
-                emmbed.clear_fields()
-                emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
-                emmbeds.append(emmbed)
-            else:
-                emmbed.add_field(name='*'+entry["Name"]+'*', value='Lasted : `'+pre_date+'`\nNext : `'+next_date+'`', inline=False)
+            str += '>*'+entry["Name"]+'*\n'
+            str += 'Lasted : '+pre_date+'\n'
+            str += 'Next : '+next_date+'\n'
 
-        if c_no %25 != 0:
-            emmbeds.append(emmbed)
-
-        await interaction.response.send_message(embeds = emmbeds)
+        await interaction.response.send_message(content = str)
     else :
         return
 
