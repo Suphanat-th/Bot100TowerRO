@@ -99,9 +99,9 @@ async def qtowercommand(interaction):
 
         pre_date = dt.strftime("%a %d %b %Y")
         next_date = next_dt.strftime("%a %d %b %Y")
-        emmbed.add_field(name=entry["Name"], value='', inline=False)
-        emmbed.add_field(name='', value='Lasted Date : '+pre_date, inline=True)
-        emmbed.add_field(name='', value='Next Date : '+next_date, inline=True)
+        emmbed.add_field(name='*'+entry["Name"]+'*', value='', inline=False)
+        emmbed.add_field(name='', value='__Lasted Date__ : `'+pre_date+'`', inline=True)
+        emmbed.add_field(name='', value='__Next Date__ : `'+next_date+'`', inline=True)
         emmbed.add_field(name='',value='_____', inline=False)
 
         emmbeds.append(emmbed)
