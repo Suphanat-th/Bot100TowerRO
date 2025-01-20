@@ -6,7 +6,7 @@ from discord import app_commands
 from myserver import server_on
 
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Load JSON file
 with open('./100tower.json', 'r') as file:
@@ -88,11 +88,15 @@ async def qtowercommand(interaction):
         # Create a datetime object
 
         dt = datetime(entry["Year"], entry["Month"], entry["Day"])
-        formatted_date = dt.strftime("%a %d %b %Y")
+        # Add 7 days
+        next_dt = dt + timedelta(days=7)
+
+        pre_date = dt.strftime("%a %d %b %Y")
+        next_date = dt.strftime("%a %d %b %Y")
         emmbed.add_field(name=entry["Name"], value='', inline=False)
-        emmbed.add_field(name='', value='Lasted Date : '+formatted_date, inline=True)
-        emmbed.add_field(name='', value='Next Date : '+formatted_date, inline=True)
-        emmbed.add_field(name='______________________________________________________',value='', inline=False)
+        emmbed.add_field(name='', value='Lasted Date : '+pre_date, inline=True)
+        emmbed.add_field(name='', value='Next Date : '+next_date, inline=True)
+        emmbed.add_field(name='@@@@@@@@@@@@@@@@@@@@@@@@@',value='', inline=False)
 
     await interaction.response.send_message(embed = emmbed)
 
