@@ -99,7 +99,6 @@ async def qtowercommand(interaction):
         emmbed.add_field(name='',value='____________________________', inline=False)
 
     await interaction.response.send_message(embed = emmbed)
-    await interaction.response.send_message(embed = emmbed,content='2')
 
 
 @bot.tree.command(name='name')
