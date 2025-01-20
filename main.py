@@ -96,7 +96,7 @@ async def qtowercommand(interaction):
         emmbed.add_field(name=entry["Name"], value='', inline=False)
         emmbed.add_field(name='', value='Lasted Date : '+pre_date, inline=True)
         emmbed.add_field(name='', value='Next Date : '+next_date, inline=True)
-        emmbed.add_field(name='',value='____________________________', inline=False)
+        emmbed.add_field(name='',value='_____', inline=False)
 
     await interaction.response.send_message(embed = emmbed)
 
