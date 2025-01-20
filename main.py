@@ -77,15 +77,21 @@ async def on_message(message):
 # Slash Commands
 @bot.tree.command(name='qtower', description='List of quest endless tower.')
 async def qtowercommand(interaction):
-    emmbed = discord.Embed(title='The Endless Tower.',
-                       description='รายละเอียดเควสของแต่ละคน',
-                       color=0x66FFFF,
-                       timestamp= discord.utils.utcnow())
+    emmbeds = []
+    title ='The Endless Tower.'
+    description = 'รายละเอียดวันและเวลาเควสของแต่ละคน'
+    color = 0x66FFFF
+    
     
 
     for entry in data_array:
         # ใส่ข้อมูล
         # Create a datetime object
+
+        emmbed = discord.Embed(title=title,
+                       description=description,
+                       color=color,
+                       timestamp= discord.utils.utcnow())
 
         dt = datetime(entry["Year"], entry["Month"], entry["Day"])
         # Add 7 days
@@ -98,7 +104,9 @@ async def qtowercommand(interaction):
         emmbed.add_field(name='', value='Next Date : '+next_date, inline=True)
         emmbed.add_field(name='',value='_____', inline=False)
 
-    await interaction.response.send_message(embed = emmbed)
+        emmbeds.append(emmbed)
+
+    await interaction.response.send_message(embeds = emmbeds)
 
 
 @bot.tree.command(name='name')
