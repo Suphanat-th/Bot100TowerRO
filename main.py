@@ -83,8 +83,10 @@ async def qtowercommand(interaction):
     if chanel_id == 1101698840475742228 : 
         str = '### __The Endless Tower. __ ### \n'
         
+        await interaction.response.send_message(content = str)
 
         for entry in data_array:
+            str = ''
             # ใส่ข้อมูล
             # Create a datetime object
 
@@ -95,15 +97,16 @@ async def qtowercommand(interaction):
 
             pre_date = dt.strftime("%a %d %b %Y")
             next_date = next_dt.strftime("%a %d %b %Y")
-            str += '> #'+entry["Name"]+'##\n'
+            str += '> #'+entry["Name"]+'# \n'
             str += '> Lasted : '+pre_date+'\n'
             if is_exp:
                 str += '> Next : ```css'+next_date+'```\n'
+                str +=  '```fix Your message```'
             else:
                 str += '> Next : ```json'+next_date+'```\n'
+                str +=  '```fix Your message2 ```'
             str += '\n'
-
-        await interaction.response.send_message(content = str)
+            await interaction.followup.send(content=str)
     else :
         return
 
