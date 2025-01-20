@@ -99,12 +99,7 @@ async def qtowercommand(interaction):
             next_date = next_dt.strftime("%a %d %b %Y")
             str += '> #'+entry["Name"]+'# \n'
             str += '> Lasted : '+pre_date+'\n'
-            if is_exp:
-                str += '> Next : ```css'+next_date+'```\n'
-                str +=  '```fix Your message```'
-            else:
-                str += '> Next : ```json'+next_date+'```\n'
-                str +=  '```fix Your message2 ```'
+            str += '> Next : '+next_date+'\n'
             str += '\n'
             await interaction.followup.send(content=str)
     else :
