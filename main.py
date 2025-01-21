@@ -106,7 +106,6 @@ async def qtowercommand(interaction):
 
                 str += "\n"
                 str += f"> **__{dataCareerClass[chrt['Occupation']]}__** \n"
-                str += f"> dt {datetime.now(timezone.utc)} \n"
                 str += f"> hours_int {difHoursToday} \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
@@ -134,9 +133,10 @@ async def costumecommand(interaction):
 # ///////////  Func ///////////////
 
 
-def hours_between_Today(d1):
-    d2 = datetime.now(timezone.utc)
-    return (d2 - d1).total_seconds()/3600
+def hours_between_Today(qdt):
+    qdt =  qdt.astimezone(timezone.utc)  # Convert to UTC
+    crdt = datetime.now(timezone.utc)
+    return (crdt - qdt).total_seconds()/3600
 
 # /////////// END Func ////////////// 
 
