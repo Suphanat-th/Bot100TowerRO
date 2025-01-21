@@ -100,15 +100,15 @@ async def qtowercommand(interaction):
 
                 pre_date = prev_dt.strftime("%a %d %b %Y (%H:%M)")
                 next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
-                difDateToday = days_between_Today(next_dt)
+                difHoursToday = hours_between_Today(next_dt)
 
                 str += "\n"
                 str += f"> **__{dataCareerClass[chrt['Occupation']]}__** \n"
-                str += f"> Dif Date {difDateToday} \n"
+                str += f"> Dif Date {difHoursToday} \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
-                if difDateToday>=0 :
-                    if difDateToday==0: # Today
+                if difHoursToday>=0 :
+                    if difHoursToday==0: # Today
                         str += f"> ลงได้อีกครั้ง : {next_date} :white_check_mark: \n"
                     else : # Not Active
                         str += f"> ลงได้อีกครั้ง : {next_date} :x:cross_mark: \n"  
@@ -131,9 +131,9 @@ async def costumecommand(interaction):
 # ///////////  Func ///////////////
 
 
-def days_between_Today(d1):
+def hours_between_Today(d1):
     d2 = datetime.now()
-    return (d2 - d1).hours
+    return (d2 - d1).total_seconds()//3600
 
 # /////////// END Func ////////////// 
 
