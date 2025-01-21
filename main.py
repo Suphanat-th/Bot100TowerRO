@@ -104,16 +104,16 @@ async def qtowercommand(interaction):
 
                 print(chrt)
                 str += "\n"
-                str += f">{dataCareerClass[chrt['Occupation']]}"
+                str += f"> {dataCareerClass[chrt['Occupation']]} \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
                 if difDateToday>=0 :
                     if difDateToday==0: # Today
-                        str += f"> ลงได้อีกครั้ง : ```fix\n{next_date}```\n"
+                        str += f"> ลงได้อีกครั้ง : {next_date} \:white_check_mark: \n"
                     else : # Not Active
-                        str += f"> ลงได้อีกครั้ง : ```diff\n+ {next_date}```\n"  
+                        str += f"> ลงได้อีกครั้ง : {next_date} \:x:cross_mark: \n"  
                 else : # Can quest
-                    str += f"> ลงได้อีกครั้ง : ```diff\n- {next_date}```\n"  
+                    str += f"> ลงได้อีกครั้ง : {next_date} \:white_check_mark: \n"  
 
                 str += '\n'
 
