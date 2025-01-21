@@ -96,7 +96,7 @@ async def qtowercommand(interaction):
 
 
                 next_dt = datetime(chrt["Year"], chrt["Month"], chrt["Day"],
-                            chrt["Hour"], chrt["Min"], chrt["Sec"])
+                            chrt["Hour"], chrt["Min"], chrt["Sec"],tzinfo=timezone.utc)
                 difHoursToday = hours_between_Today(next_dt)
                 hours_int = difHoursToday // timedelta(hours=1)
                 # Prev 7 days
