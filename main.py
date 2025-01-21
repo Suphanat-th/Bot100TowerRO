@@ -98,7 +98,6 @@ async def qtowercommand(interaction):
                 next_dt = datetime(chrt["Year"], chrt["Month"], chrt["Day"],
                             chrt["Hour"], chrt["Min"], chrt["Sec"],tzinfo=timezone.utc)
                 difHoursToday = hours_between_Today(next_dt)
-                hours_int = difHoursToday // timedelta(hours=1)
                 # Prev 7 days
                 prev_dt = next_dt + timedelta(days=-7,hours=-1)
 
@@ -107,7 +106,7 @@ async def qtowercommand(interaction):
 
                 str += "\n"
                 str += f"> **__{dataCareerClass[chrt['Occupation']]}__** \n"
-                str += f"> hours_int {hours_int} \n"
+                str += f"> hours_int {difHoursToday} \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
                 if difHoursToday>=0 :
