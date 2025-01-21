@@ -96,7 +96,7 @@ async def qtowercommand(interaction):
                 next_dt = datetime(chrt["Year"], chrt["Month"], chrt["Day"],
                             chrt["Hour"], chrt["Min"], chrt["Sec"])
                 # Prev 7 days
-                prev_dt = next_dt + timedelta(days=-7)
+                prev_dt = next_dt + timedelta(days=-7,hour=-1)
 
                 pre_date = prev_dt.strftime("%a %d %b %Y (%H:%M)")
                 next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
@@ -109,11 +109,11 @@ async def qtowercommand(interaction):
 
                 if difDateToday>=0 :
                     if difDateToday==0: # Today
-                        str += f"> ลงได้อีกครั้ง : {next_date} \:white_check_mark: \n"
+                        str += f"> ลงได้อีกครั้ง : {next_date} :white_check_mark: \n"
                     else : # Not Active
-                        str += f"> ลงได้อีกครั้ง : {next_date} \:x:cross_mark: \n"  
+                        str += f"> ลงได้อีกครั้ง : {next_date} :x:cross_mark: \n"  
                 else : # Can quest
-                    str += f"> ลงได้อีกครั้ง : {next_date} \:white_check_mark: \n"  
+                    str += f"> ลงได้อีกครั้ง : {next_date} :white_check_mark: \n"  
 
                 str += '\n'
 
