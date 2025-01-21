@@ -100,7 +100,7 @@ async def qtowercommand(interaction):
 
                 pre_date = prev_dt.strftime("%a %d %b %Y (%H:%M)")
                 next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
-                difDateToday = days_between_Today(next_dt)
+                difDateToday = days_between_Today(next_dt.strftime("%Y-%m-%d"))
 
 
                 str += "\n"
@@ -132,7 +132,6 @@ async def costumecommand(interaction):
 
 
 def days_between_Today(d1):
-    d1 = datetime.strptime(d1, "%Y-%m-%d")
     d2 = datetime.now("%Y-%m-%d")
     return (d2 - d1).days
 
