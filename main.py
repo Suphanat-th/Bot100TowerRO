@@ -110,13 +110,12 @@ async def qtowercommand(interaction):
                 str += f"> hours_int {difHoursToday} \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
-                if difHoursToday>=0 :
-                    if difHoursToday==0: # Today
-                        str += f"> ลงได้อีกครั้ง : {next_date} :white_check_mark: \n"
-                    else : # Not Active
-                        str += f"> ลงได้อีกครั้ง : {next_date} :x: \n"  
-                else : # Can quest
+                if difHoursToday <= 0 : # Activate Quest
                     str += f"> ลงได้อีกครั้ง : {next_date} :white_check_mark: \n"  
+                elif difHoursToday > 0 and difHoursToday<= 12: # Wait Quest
+                    str += f"> ลงได้อีกครั้ง : {next_date} :watch: \n"
+                else :  # Not Pass Quest
+                    str += f"> ลงได้อีกครั้ง : {next_date} :x: \n"
 
                 str += '\n'
 
@@ -135,9 +134,12 @@ async def costumecommand(interaction):
 
 
 def hours_between_Today(qdt):
-    qdt = qdt.astimezone(pytz.timezone('Asia/Bangkok'))  # Convert to UTC+7
-    crdt = datetime.now(pytz.timezone('Asia/Bangkok'))  # Current time in UTC+7
-    return (crdt - qdt).total_seconds()/3600
+    qdt = qdt.astimezone(pytz.timezone('Asia/Bangkok'))  # Next Quest 
+    current_dt = datetime.now(pytz.timezone('Asia/Bangkok'))  # DateTime Now
+    # Activate Quest = current_dt >= quest
+    # Can't Activate Quest = current_dt < quest
+    # -,0 = can activate
+    return (qdt-current_dt).total_seconds()/3600  
 
 # /////////// END Func ////////////// 
 
