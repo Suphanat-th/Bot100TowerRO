@@ -5,7 +5,7 @@
             "Id": "318974910372249600",
             "Charactor": [
                 {
-                    "ClassId": 29,// Ninja
+                    "ClassId": 29,
                     "DateTime":202501262341,
                     "Year": 2025,
                     "Month": 1,
@@ -146,37 +146,37 @@
         }
     ],
     "Class": [
-        "Unknow", //0
-        "Knight",//1
-        "Lord Knight",//2
-        "Crusader",//3
-        "Paladin",//4
-        "Wizard",//5
-        "High Wizard",//6
-        "Sage",//7
-        "Professor",//8
-        "Hunter",//9
-        "Sniper",//10
-        "Bard",//11
-        "Clown",//12
-        "Dancer",//13
-        "Gypsy",//14
-        "Priest",//15
-        "High Priest",//16
-        "Monk",//17
-        "Champion",//18
-        "Blacksmith",//19
-        "Whitesmith",//20
-        "Alchemist",//21
-        "Creator",//22
-        "Assassin",//23
-        "Assassin Cross",//24
-        "Rogue",//25
-        "Stalker",//26
-        "Star Gladiator",//27
-        "Soul Linker",//28
-        "Ninja",//29
-        "Gunslinger"//30
+        "Unknow",
+        "Knight",
+        "Lord Knight",
+        "Crusader",
+        "Paladin",
+        "Wizard",
+        "High Wizard",
+        "Sage",
+        "Professor",
+        "Hunter",
+        "Sniper",
+        "Bard",
+        "Clown",
+        "Dancer",
+        "Gypsy",
+        "Priest",
+        "High Priest",
+        "Monk",
+        "Champion",
+        "Blacksmith",
+        "Whitesmith",
+        "Alchemist",
+        "Creator",
+        "Assassin",
+        "Assassin Cross",
+        "Rogue",
+        "Stalker",
+        "Star Gladiator",
+        "Soul Linker",
+        "Ninja",
+        "Gunslinger"
     ],
     "Costume": "https://visual.runemidgarts.in.th/"
 }
