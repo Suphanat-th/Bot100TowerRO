@@ -132,7 +132,7 @@ async def costumecommand(interaction):
 
 
 def days_between_Today(d1):
-    d2 = datetime.now("%Y-%m-%d")
+    d2 = datetime.now()
     return (d2 - d1).days
 
 # /////////// END Func ////////////// 
