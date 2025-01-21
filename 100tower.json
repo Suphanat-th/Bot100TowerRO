@@ -1,198 +1,234 @@
 {
-    "Data": [
+  "Data": [
+    {
+      "Name": "Boss",
+      "Id": "318974910372249600",
+      "Charactor": [
         {
-            "Name": "Boss",
-            "Id": "318974910372249600",
-            "Charactor": [
-                {
-                    "Occupation": 29,
-                    "DateTime":202501262341,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 26,
-                    "Hour": 23,
-                    "Min": 41,
-                    "Sec": 0
-                }
-            ]
-        },
-        {
-            "Name": "Tete",
-            "Id": "748888997891145788",
-            "Charactor": [
-                {
-                    "Occupation": 6,
-                    "DateTime":202501212235,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 21,
-                    "Hour": 22,
-                    "Min": 35,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 16,
-                    "DateTime":202501262340,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 26,
-                    "Hour": 23,
-                    "Min": 40,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 11,
-                    "DateTime":202501232030,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 23,
-                    "Hour": 20,
-                    "Min": 30,
-                    "Sec": 0
-                }
-            ]
-        },
-        {
-            "Name": "Ford",
-            "Id": "1051017754951561226",
-            "Charactor": [
-                {
-                    "Occupation": 0,
-                    "DateTime":202501250016,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 25,
-                    "Hour": 0,
-                    "Min": 16,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 0,
-                    "DateTime":202501232249,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 23,
-                    "Hour": 22,
-                    "Min": 49,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 0,
-                    "DateTime":202501262341,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 26,
-                    "Hour": 23,
-                    "Min": 41,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 0,
-                    "DateTime":202501212233,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 21,
-                    "Hour": 22,
-                    "Min": 33,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 0,
-                    "DateTime":202501220018,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 22,
-                    "Hour": 0,
-                    "Min": 18,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 0,
-                    "DateTime":202501220235,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 22,
-                    "Hour": 2,
-                    "Min": 35,
-                    "Sec": 0
-                }
-            ]
-        },
-        {
-            "Name": "TOI",
-            "Id": "875792319285170197",
-            "Charactor": [
-                {
-                    "Occupation": 2,
-                    "DateTime":202501212223,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 21,
-                    "Hour": 22,
-                    "Min": 23,
-                    "Sec": 0
-                },
-                {
-                    "Occupation": 2,
-                    "DateTime":202501232249,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 23,
-                    "Hour": 22,
-                    "Min": 49,
-                    "Sec": 0
-                }
-            ]
-        },
-        {
-            "Name": "YoongKai",
-            "Id": "1294881804062560306",
-            "Charactor": [
-                {
-                    "Occupation": 0,
-                    "DateTime":202501210000,
-                    "Year": 2025,
-                    "Month": 1,
-                    "Day": 21,
-                    "Hour": 0,
-                    "Min": 0,
-                    "Sec": 0
-                }
-            ]
+          "Occupation": 29,
+          "DateTime": 202501262341,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 26,
+          "Hour": 23,
+          "Min": 41,
+          "Sec": 0
         }
-    ],
-    "Class": [
-        "Unknow",
-        "Knight",
-        "Lord Knight",
-        "Crusader",
-        "Paladin",
-        "Wizard",
-        "High Wizard",
-        "Sage",
-        "Professor",
-        "Hunter",
-        "Sniper",
-        "Bard",
-        "Clown",
-        "Dancer",
-        "Gypsy",
-        "Priest",
-        "High Priest",
-        "Monk",
-        "Champion",
-        "Blacksmith",
-        "Whitesmith",
-        "Alchemist",
-        "Creator",
-        "Assassin",
-        "Assassin Cross",
-        "Rogue",
-        "Stalker",
-        "Star Gladiator",
-        "Soul Linker",
-        "Ninja",
-        "Gunslinger"
-    ],
-    "Costume": "https://visual.runemidgarts.in.th/"
+      ]
+    },
+    {
+      "Name": "Tete",
+      "Id": "748888997891145788",
+      "Charactor": [
+        {
+          "Occupation": 6,
+          "DateTime": 202501212235,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 21,
+          "Hour": 22,
+          "Min": 35,
+          "Sec": 0
+        },
+        {
+          "Occupation": 16,
+          "DateTime": 202501262340,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 26,
+          "Hour": 23,
+          "Min": 40,
+          "Sec": 0
+        },
+        {
+          "Occupation": 11,
+          "DateTime": 202501232030,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 23,
+          "Hour": 20,
+          "Min": 30,
+          "Sec": 0
+        }
+      ]
+    },
+    {
+      "Name": "Ford",
+      "Id": "1051017754951561226",
+      "Charactor": [
+        {
+          "Occupation": 0,
+          "DateTime": 202501250016,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 25,
+          "Hour": 0,
+          "Min": 16,
+          "Sec": 0
+        },
+        {
+          "Occupation": 0,
+          "DateTime": 202501232249,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 23,
+          "Hour": 22,
+          "Min": 49,
+          "Sec": 0
+        },
+        {
+          "Occupation": 0,
+          "DateTime": 202501262341,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 26,
+          "Hour": 23,
+          "Min": 41,
+          "Sec": 0
+        },
+        {
+          "Occupation": 0,
+          "DateTime": 202501212233,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 21,
+          "Hour": 22,
+          "Min": 33,
+          "Sec": 0
+        },
+        {
+          "Occupation": 0,
+          "DateTime": 202501220018,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 22,
+          "Hour": 0,
+          "Min": 18,
+          "Sec": 0
+        },
+        {
+          "Occupation": 0,
+          "DateTime": 202501220235,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 22,
+          "Hour": 2,
+          "Min": 35,
+          "Sec": 0
+        }
+      ]
+    },
+    {
+      "Name": "TOI",
+      "Id": "875792319285170197",
+      "Charactor": [
+        {
+          "Occupation": 2,
+          "DateTime": 202501212223,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 21,
+          "Hour": 22,
+          "Min": 23,
+          "Sec": 0
+        },
+        {
+          "Occupation": 2,
+          "DateTime": 202501232249,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 23,
+          "Hour": 22,
+          "Min": 49,
+          "Sec": 0
+        }
+      ]
+    },
+    {
+      "Name": "YoongKai",
+      "Id": "1294881804062560306",
+      "Charactor": [
+        {
+          "Occupation": 0,
+          "DateTime": 202501210000,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 21,
+          "Hour": 0,
+          "Min": 0,
+          "Sec": 0
+        }
+      ]
+    },
+    {
+      "Name": "Peet",
+      "Id": "444120664539004929",
+      "Charactor": [
+        {
+          "Occupation": 1,
+          "DateTime": 202501250016,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 25,
+          "Hour": 0,
+          "Min": 16,
+          "Sec": 0
+        },
+        {
+          "Occupation": 16,
+          "DateTime": 202501262042,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 26,
+          "Hour": 20,
+          "Min": 42,
+          "Sec": 0
+        },
+        {
+          "Occupation": 8,
+          "DateTime": 202501212233,
+          "Year": 2025,
+          "Month": 1,
+          "Day": 21,
+          "Hour": 22,
+          "Min": 33,
+          "Sec": 0
+        }
+      ]
+    }
+  ],
+  "Class": [
+    "Unknow",
+    "Knight",
+    "Lord Knight",
+    "Crusader",
+    "Paladin",
+    "Wizard",
+    "High Wizard",
+    "Sage",
+    "Professor",
+    "Hunter",
+    "Sniper",
+    "Bard",
+    "Clown",
+    "Dancer",
+    "Gypsy",
+    "Priest",
+    "High Priest",
+    "Monk",
+    "Champion",
+    "Blacksmith",
+    "Whitesmith",
+    "Alchemist",
+    "Creator",
+    "Assassin",
+    "Assassin Cross",
+    "Rogue",
+    "Stalker",
+    "Star Gladiator",
+    "Soul Linker",
+    "Ninja",
+    "Gunslinger"
+  ],
+  "Costume": "https://visual.runemidgarts.in.th/"
 }
