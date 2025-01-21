@@ -38,7 +38,10 @@ async def on_ready():
 @bot.event
 async def on_member_remove(member):
     channel = bot.get_channel(1330807911995277404)  # IDห้อง
-    text = f"เจ้านายยยยย ท่าน {member.name} ได้หนีจาก Discord เราไปแล้วเมี๊ยววว TT"
+    text = f"เจ้านายยยยยข้า "
+    for roleId in data["Roles"]:
+        text += f"<@&{roleId}> "
+    text += f"\n ท่าน <@{member.Id}> ({member.name})  ได้หนีจาก Discord เราไปแล้วเมี๊ยววว TT"
     await channel.send(text)  # ส่งข้อความไปที่ห้องนี้
 
 
