@@ -102,9 +102,9 @@ async def qtowercommand(interaction):
                 next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
                 difDateToday = days_between_Today(next_dt)
 
-                print(chrt)
                 str += "\n"
                 str += f"> **__{dataCareerClass[chrt['Occupation']]}__** \n"
+                str += f"> Dif Date {difDateToday} \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
                 if difDateToday>=0 :
