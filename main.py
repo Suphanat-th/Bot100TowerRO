@@ -69,13 +69,11 @@ async def on_message(message):
 async def qtowercommand(interaction):
     chanel_id = interaction.channel.id
     if chanel_id == 1101698840475742228 or chanel_id == 1330807911995277404 : 
-        str = '### __The Endless Tower. __ ### \n'
-        message  = await interaction.response.send_message(content = str)
-    
-        # Wait for a certain number of seconds (e.g., 10 seconds)
-        await asyncio.sleep(30)
-        # Delete the message
-        await message.delete()
+        embedVar = discord.Embed(title="### __The Endless Tower. __ ###", description="รายชื่อร้อยชั้นของแต่ละคน", color=0x00ff00)
+        embedVar.add_field(name=f":x:", value="ไม่สามารถลงได้", inline=False)
+        embedVar.add_field(name=f":white_check_mark:", value="ลงได้", inline=False)
+        embedVar.add_field(name=f":watch:", value="ใกล้จะถึงเวลาแล้ว อีกไม่กี่ชั่วโมง", inline=False)
+        await interaction.response.send_message(embed = embedVar)
 
         for entry in data_array:
             sortedCharactor = sorted(entry["Charactor"], key=lambda x: x['DateTime'])
@@ -109,11 +107,7 @@ async def qtowercommand(interaction):
 
                 str += '\n'
 
-            followup_message = await interaction.followup.send(content=str)
-
-            # Wait for 10 seconds before deleting the follow-up message
-            await asyncio.sleep(30)
-            await followup_message.delete()
+            await interaction.followup.send(content=str)
     else :
         return
 
