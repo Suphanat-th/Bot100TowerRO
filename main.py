@@ -104,7 +104,7 @@ async def qtowercommand(interaction):
 
 
                 str += "\n"
-                str += f">{dataCareerClass[chrt["Occupation"]]}"
+                str += f">{dataCareerClass[chrt['Occupation']]}"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
                 if difDateToday>=0 :
