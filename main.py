@@ -135,7 +135,7 @@ async def costumecommand(interaction):
 
 
 def hours_between_Today(d1):
-    d2 = datetime.now(timezone.uct)
+    d2 = datetime.now(timezone.utc)
     return (d2 - d1).total_seconds()/3600
 
 # /////////// END Func ////////////// 
