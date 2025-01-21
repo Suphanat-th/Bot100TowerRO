@@ -6,7 +6,6 @@
             "Charactor": [
                 {
                     "Occupation": 29,
-                    "ClassId": 29,
                     "DateTime":202501262341,
                     "Year": 2025,
                     "Month": 1,
@@ -141,6 +140,22 @@
                     "Day": 23,
                     "Hour": 22,
                     "Min": 49,
+                    "Sec": 0
+                }
+            ]
+        },
+        {
+            "Name": "YoongKai",
+            "Id": "1294881804062560306",
+            "Charactor": [
+                {
+                    "Occupation": 0,
+                    "DateTime":202501210000,
+                    "Year": 2025,
+                    "Month": 1,
+                    "Day": 21,
+                    "Hour": 0,
+                    "Min": 0,
                     "Sec": 0
                 }
             ]

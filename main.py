@@ -8,7 +8,7 @@ from myserver import server_on
 import json
 from datetime import datetime, timedelta,timezone
 import pytz
-
+import asyncio
 
 # Load JSON file
 with open('./100tower.json', 'r') as file:
@@ -36,23 +36,9 @@ async def on_ready():
 # แจ้งคนเข้า -ออกเซิฟเวอร์
 
 @bot.event
-async def on_member_join(member):
-    channel = bot.get_channel(1140633489520205934) # IDห้อง
-    text = f"Welcome to the server, {member.mention}!"
-
-    emmbed = discord.Embed(title = 'Welcome to the server!',
-                           description = text,
-                           color = 0x66FFFF)
-
-    await channel.send(text) # ส่งข้อความไปที่ห้องนี้
-    await channel.send(embed = emmbed)  # ส่ง Embed ไปที่ห้องนี้
-    await member.send(text) # ส่งข้อความไปที่แชทส่วนตัวของ member
-
-
-@bot.event
 async def on_member_remove(member):
-    channel = bot.get_channel(1140633489520205934)  # IDห้อง
-    text = f"{member.name} has left the server!"
+    channel = bot.get_channel(1330807911995277404)  # IDห้อง
+    text = f"เจ้านายยยยย ท่าน {member.name} ได้หนีจาก Discord เราไปแล้วเมี๊ยววว TT"
     await channel.send(text)  # ส่งข้อความไปที่ห้องนี้
 
 
@@ -60,12 +46,12 @@ async def on_member_remove(member):
 # คำสั่ง chatbot
 @bot.event
 async def on_message(message):
-    mes = message.content # ดึงข้อความที่ถูกส่งมา
-    if mes == 'hello':
-        await message.channel.send("Hello It's me") # ส่งกลับไปที่ห้องนั่น
+    # mes = message.content # ดึงข้อความที่ถูกส่งมา
+    # if mes == 'hello':
+    #     await message.channel.send("Hello It's me") # ส่งกลับไปที่ห้องนั่น
 
-    elif mes == 'hi bot':
-        await message.channel.send("Hello, " + str(message.author.name))
+    # elif mes == 'hi bot':
+    #     await message.channel.send("Hello, " + str(message.author.name))
 
     await bot.process_commands(message)
     # ทำคำสั่ง event แล้วไปทำคำสั่ง bot command ต่อ
@@ -81,11 +67,15 @@ async def on_message(message):
 # Slash Commands
 @bot.tree.command(name='qtower', description='List of quest endless tower.')
 async def qtowercommand(interaction):
-    emmbeds = []
     chanel_id = interaction.channel.id
     if chanel_id == 1101698840475742228 or chanel_id == 1330807911995277404 : 
         str = '### __The Endless Tower. __ ### \n'
-        await interaction.response.send_message(content = str)
+        message  = await interaction.response.send_message(content = str)
+    
+        # Wait for a certain number of seconds (e.g., 10 seconds)
+        await asyncio.sleep(30)
+        # Delete the message
+        await message.delete()
 
         for entry in data_array:
             sortedCharactor = sorted(entry["Charactor"], key=lambda x: x['DateTime'])
@@ -119,7 +109,11 @@ async def qtowercommand(interaction):
 
                 str += '\n'
 
-            await interaction.followup.send(content=str)
+            followup_message = await interaction.followup.send(content=str)
+
+            # Wait for 10 seconds before deleting the follow-up message
+            await asyncio.sleep(30)
+            await followup_message.delete()
     else :
         return
 
