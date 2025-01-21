@@ -14,6 +14,7 @@ with open('./100tower.json', 'r') as file:
 # Access the "Data" array
 data_array = data["Data"]
 data_web_costume = data["Costume"]
+dataCareerClass = data["Class"]
     
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
@@ -82,25 +83,40 @@ async def qtowercommand(interaction):
     chanel_id = interaction.channel.id
     if chanel_id == 1101698840475742228 or chanel_id == 1330807911995277404 : 
         str = '### __The Endless Tower. __ ### \n'
-        
         await interaction.response.send_message(content = str)
 
         for entry in data_array:
+            sortedCharactor = sorted(entry["Charactor"], key=lambda x: x['DateTime'])
             str = ''
-            # ใส่ข้อมูล
-            # Create a datetime object
+            str += f"<@{entry['Id']}>\n"
+            for chrt in sortedCharactor:
+                # ใส่ข้อมูล
+                # Create a datetime object
 
-            dt = datetime(entry["Year"], entry["Month"], entry["Day"],
-                        entry["Hour"], entry["Min"], entry["Sec"])
-            # Add 7 days
-            next_dt = dt + timedelta(days=7)
+                next_dt = datetime(chrt["Year"], chrt["Month"], chrt["Day"],
+                            chrt["Hour"], chrt["Min"], chrt["Sec"])
+                # Prev 7 days
+                prev_dt = next_dt + timedelta(days=-7)
 
-            pre_date = dt.strftime("%a %d %b %Y (%H:%M)")
-            next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
-            str += '<@'+entry["Id"]+'>\n'
-            str += '> ลงไปล่าสุด :  `'+pre_date+'`\n'
-            str += '> ลงได้อีกครั้ง : `'+next_date+'`\n'
-            str += '\n'
+                pre_date = prev_dt.strftime("%a %d %b %Y (%H:%M)")
+                next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
+                difDateToday = days_between_Today(next_date)
+
+
+                str += "\n"
+                str += f">{dataCareerClass[chrt["Occupation"]]}"
+                str += f"> ลงไปล่าสุด : {pre_date}\n"
+
+                if difDateToday>=0 :
+                    if difDateToday==0: # Today
+                        str += f"> ลงได้อีกครั้ง : ```fix\n{next_date}```\n"
+                    else : # Not Active
+                        str += f"> ลงได้อีกครั้ง : ```diff\n+ {next_date}```\n"  
+                else : # Can quest
+                    str += f"> ลงได้อีกครั้ง : ```diff\n- {next_date}```\n"  
+
+                str += '\n'
+
             await interaction.followup.send(content=str)
     else :
         return
@@ -112,6 +128,15 @@ async def costumecommand(interaction):
 
 
 
+# ///////////  Func ///////////////
+
+
+def days_between_Today(d1):
+    d1 = datetime.strptime(d1, "%Y-%m-%d")
+    d2 = datetime.now("%Y-%m-%d")
+    return (d2 - d1).days
+
+# /////////// END Func ////////////// 
 
 server_on()
 bot.run(os.getenv('TOKEN'))
