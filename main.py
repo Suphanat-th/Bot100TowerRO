@@ -100,7 +100,7 @@ async def qtowercommand(interaction):
 
                 pre_date = prev_dt.strftime("%a %d %b %Y (%H:%M)")
                 next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
-                difDateToday = days_between_Today(next_date)
+                difDateToday = days_between_Today(next_dt)
 
 
                 str += "\n"
