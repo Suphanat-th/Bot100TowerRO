@@ -21,7 +21,7 @@
             "Id": "748888997891145788",
             "Charactor": [
                 {
-                    "Occupation": 6,//H Wi
+                    "Occupation": 6,
                     "DateTime":202501212235,
                     "Year": 2025,
                     "Month": 1,
@@ -31,7 +31,7 @@
                     "Sec": 0
                 },
                 {
-                    "Occupation": 16, // H Pr
+                    "Occupation": 16,
                     "DateTime":202501262340,
                     "Year": 2025,
                     "Month": 1,
@@ -41,7 +41,7 @@
                     "Sec": 0
                 },
                 {
-                    "Occupation": 11, // H Pr
+                    "Occupation": 11,
                     "DateTime":202501232030,
                     "Year": 2025,
                     "Month": 1,
