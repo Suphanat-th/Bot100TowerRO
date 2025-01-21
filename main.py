@@ -7,6 +7,7 @@ from myserver import server_on
 
 import json
 from datetime import datetime, timedelta,timezone
+import pytz
 
 
 # Load JSON file
@@ -96,8 +97,8 @@ async def qtowercommand(interaction):
 
 
                 next_dt = datetime(chrt["Year"], chrt["Month"], chrt["Day"],
-                            chrt["Hour"], chrt["Min"], chrt["Sec"],tzinfo=timezone.utc)
-                difHoursToday = hours_between_Today(next_dt)
+                            chrt["Hour"], chrt["Min"], chrt["Sec"])
+                difHoursToday = hours_between_Today(pytz.timezone('Asia/Bangkok').localize(next_dt))
                 # Prev 7 days
                 prev_dt = next_dt + timedelta(days=-7,hours=-1)
 
@@ -134,8 +135,8 @@ async def costumecommand(interaction):
 
 
 def hours_between_Today(qdt):
-    qdt =  qdt.astimezone(timezone.utc)  # Convert to UTC
-    crdt = datetime.now(timezone.utc)
+    qdt = qdt.astimezone(pytz.timezone('Asia/Bangkok'))  # Convert to UTC+7
+    crdt = datetime.now(pytz.timezone('Asia/Bangkok'))  # Current time in UTC+7
     return (crdt - qdt).total_seconds()/3600
 
 # /////////// END Func ////////////// 
