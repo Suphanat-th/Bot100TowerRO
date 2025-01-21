@@ -93,9 +93,11 @@ async def qtowercommand(interaction):
                 # ใส่ข้อมูล
                 # Create a datetime object
 
+
                 next_dt = datetime(chrt["Year"], chrt["Month"], chrt["Day"],
                             chrt["Hour"], chrt["Min"], chrt["Sec"])
                 difHoursToday = hours_between_Today(next_dt)
+                hours_int = difHoursToday // timedelta(hours=1)
                 # Prev 7 days
                 prev_dt = next_dt + timedelta(days=-7,hours=-1)
 
@@ -104,14 +106,14 @@ async def qtowercommand(interaction):
 
                 str += "\n"
                 str += f"> **__{dataCareerClass[chrt['Occupation']]}__** \n"
-                str += f"> Dif Date {difHoursToday} \n"
+                str += f"> hours_int {hours_int} \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
                 if difHoursToday>=0 :
                     if difHoursToday==0: # Today
                         str += f"> ลงได้อีกครั้ง : {next_date} :white_check_mark: \n"
                     else : # Not Active
-                        str += f"> ลงได้อีกครั้ง : {next_date} :x:cross_mark: \n"  
+                        str += f"> ลงได้อีกครั้ง : {next_date} :x: \n"  
                 else : # Can quest
                     str += f"> ลงได้อีกครั้ง : {next_date} :white_check_mark: \n"  
 
@@ -133,7 +135,7 @@ async def costumecommand(interaction):
 
 def hours_between_Today(d1):
     d2 = datetime.now(timezone.utc)
-    return (d2 - d1).total_seconds()//3600
+    return (d2 - d1).total_seconds()/3600
 
 # /////////// END Func ////////////// 
 
