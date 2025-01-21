@@ -6,8 +6,8 @@ from discord import app_commands
 from myserver import server_on
 
 import json
-from datetime import datetime, timedelta
-from pytz import timezone
+from datetime import datetime, timedelta,timezone
+
 
 # Load JSON file
 with open('./100tower.json', 'r') as file:
@@ -135,7 +135,7 @@ async def costumecommand(interaction):
 
 
 def hours_between_Today(d1):
-    d2 = datetime.now(tzinfo=timezone('UCT'))
+    d2 = datetime.now(timezone.uct)
     return (d2 - d1).total_seconds()/3600
 
 # /////////// END Func ////////////// 
