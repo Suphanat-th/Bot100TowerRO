@@ -6,7 +6,7 @@ from discord import app_commands
 from myserver import server_on
 
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta,timezone
 
 # Load JSON file
 with open('./100tower.json', 'r') as file:
@@ -95,12 +95,12 @@ async def qtowercommand(interaction):
 
                 next_dt = datetime(chrt["Year"], chrt["Month"], chrt["Day"],
                             chrt["Hour"], chrt["Min"], chrt["Sec"])
+                difHoursToday = hours_between_Today(next_dt)
                 # Prev 7 days
                 prev_dt = next_dt + timedelta(days=-7,hours=-1)
 
                 pre_date = prev_dt.strftime("%a %d %b %Y (%H:%M)")
                 next_date = next_dt.strftime("%a %d %b %Y (%H:%M)")
-                difHoursToday = hours_between_Today(next_dt)
 
                 str += "\n"
                 str += f"> **__{dataCareerClass[chrt['Occupation']]}__** \n"
@@ -132,8 +132,8 @@ async def costumecommand(interaction):
 
 
 def hours_between_Today(d1):
-    d2 = datetime.now()
-    return (d1-d2).total_seconds()//3600
+    d2 = datetime.now(timezone.utc)
+    return (d2 - d1).total_seconds()//3600
 
 # /////////// END Func ////////////// 
 
