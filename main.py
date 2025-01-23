@@ -99,7 +99,7 @@ async def qtowercommand(interaction):
                 str += "\n"
                 str += f"> **__{dataCareerClass[chrt['Occupation']]}__** \n"
                 if chrt["NameCharactor"] != "" :
-                    str += f"> __{chrt["NameCharactor"]}__ \n"
+                    str += f"> __{chrt['NameCharactor']}__ \n"
                 str += f"> ลงไปล่าสุด : {pre_date}\n"
 
                 if difHoursToday <= 0 : # Activate Quest
