@@ -120,7 +120,12 @@ async def qtowercommand(interaction):
 async def costumecommand(interaction):
         await interaction.response.send_message(data_web_costume)
 
-
+@bot.tree.command(name='invite',description='Created Link Invite Server')
+async def invitecommand(interaction):
+    chanel_id = interaction.channel.id
+    if chanel_id == 1101698840475742228 or chanel_id == 1330807911995277404 : 
+        invite = await interaction.channel.create_invite(max_uses=1, unique=True)
+        await interaction.response.send_message(f"Here's your invite link: {invite.url}")
 
 # ///////////  Func ///////////////
 
